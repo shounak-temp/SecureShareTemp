@@ -1,0 +1,26 @@
+{
+  "name": "extension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "build": "vite build && npm run copy-static && node fix-manifest.cjs",
+  "copy-static": "copy manifest.json dist\\manifest.json && copy icon*.png dist\\",
+  "clean": "rimraf dist"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "buffer": "^6.0.3",
+    "jose": "^6.1.0",
+    "webextension-polyfill": "^0.12.0"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.2.0",
+    "rimraf": "^5.0.1",
+    "rollup-plugin-node-polyfills": "^0.2.1",
+    "vite": "^4.4.9"
+  }
+}

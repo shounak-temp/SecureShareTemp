@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "SecureShare for Interviews",
+  "version": "1.0.0",
+  "description": "Secure screen sharing to prevent overlays in interviews",
+  "permissions": [
+    "nativeMessaging",
+    "desktopCapture",
+    "storage",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://teams.microsoft.com/*",
+    "https://*.zoom.us/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "assets/content.df11db3e.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/*",
+        "src/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "externally_connectable": {
+    "matches": ["http://localhost:3001/*", "http://localhost:3000/*"]
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
